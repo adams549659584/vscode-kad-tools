@@ -1,0 +1,100 @@
+{
+  "name": "kad-tools",
+  "displayName": "kad-tools",
+  "description": "kad2.0前端 vscode 小工具",
+  "version": "1.0.0",
+  "publisher": "luojun",
+  "icon": "icon.png",
+  "license": "MIT",
+  "licenseUrl": "LICENSE",
+  "engines": {
+    "vscode": "^1.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adams549659584/vscode-kad-tools.git"
+  },
+  "keywords": [
+    "kad tools",
+    "rem",
+    "px rem",
+    "px to rem",
+    "px2rem",
+    "css rem"
+  ],
+  "categories": [
+    "Formatters",
+    "Snippets",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:vue",
+    "onLanguage:css",
+    "onLanguage:less",
+    "onLanguage:scss",
+    "onLanguage:sass",
+    "onLanguage:stylus",
+    "onLanguage:tpl"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.px2rem",
+        "title": "kad-tools px2rem"
+      },
+      {
+        "command": "extension.rpx2rem",
+        "title": "kad-tools rpx2rem"
+      },
+      {
+        "command": "extension.rem2px",
+        "title": "kad-tools rem2px"
+      },
+      {
+        "command": "extension.rem2rpx",
+        "title": "kad-tools rem2rpx"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "kad-tools configuration",
+      "properties": {
+        "kad-tools.rootFontSize": {
+          "type": "number",
+          "default": 100,
+          "description": "root font-size (unit: px), default: 100"
+        },
+        "kad-tools.fixedDigits": {
+          "type": "number",
+          "default": 6,
+          "description": "Px to rem decimal point maximum length, default: 6"
+        },
+        "kad-tools.autoRemovePrefixZero": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically remove prefix 0, default: false"
+        },
+        "kad-tools.ingoresViaCommand": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Ignores `px` to `rem` when trigger command, can be set `[ \"1px\", \"0.5px\" ]`, default: []"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "release": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "typescript": "^3.5.3",
+    "vscode": "^1.1.36"
+  }
+}
